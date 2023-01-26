@@ -26,6 +26,30 @@ h3{
   text-align:center;
   width:400px;
 }
+footer{
+      background: #2980b9;
+      position: fixed; 
+      bottom:0;
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      margin: 3px 0 0 0 ;
+      width: 101%;
+      height: 60px;
+      color: white; 
+    } 
+    footer h2 a{
+      text-decoration: none; 
+      color: white;
+      font-size: 22px;
+      border-radius: 20px;
+      transition: all 300ms ease-out; 
+    }
+    footer h2 a:hover{
+      background: #2980e9;
+      font-size: 24px;
+      padding: 10px;
+    }
   </style>
  </head> 
  <body> 
@@ -48,6 +72,11 @@ h3{
      <img id="pixel" alt="avatar"> 
     </div> 
    </div> 
+   
+  </main> 
+  <footer> 
+   <h2><a href="https://github.com/cuber-dev" target="_blank">@Cuber-dev</a></h2> 
+  </footer> 
    <script>
     var name = prompt("What is your name?");
 document.getElementById("botoutput").innerHTML = "Your name " + name + " in bottts Image format";
@@ -57,6 +86,5 @@ document.getElementById("bot").src = "https://api.dicebear.com/5.x/bottts/svg?se
 document.getElementById("identicon").src = "https://api.dicebear.com/5.x/identicon/svg?seed=" + name;
 document.getElementById("pixel").src = "https://api.dicebear.com/4.x/pixel-art/svg?seed=" + name;
    </script>
-  </main> 
  </body>
 </html>
