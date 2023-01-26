@@ -1,0 +1,61 @@
+<!doctype html>
+<html> 
+ <head> 
+  <title>Dice bear</title> 
+  <style>
+  h1{
+  text-align:center;
+}
+h3{
+  text-align:center;
+  border-bottom:1px solid #ff2020;
+  padding:15px;
+}
+.container{
+  display:flex;
+  padding:25px;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.images{
+  box-shadow:5px 5px 15px rgba(0,0,0,0.20);
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+  width:400px;
+}
+  </style>
+ </head> 
+ <body> 
+  <header> 
+   <h1>Thanks to Dice bear! </h1> 
+  </header> 
+  <main> 
+   <div class="container"> 
+    <div class="images"> 
+     <h3 id="ideoutput"></h3> 
+     <img id="identicon" alt="avatar"> 
+    </div> 
+    <div class="images"> 
+     <h3 id="botoutput"> </h3> 
+     <img id="bot" alt="avatar"> 
+    </div> 
+    <div class="images"> 
+     <h3 id="pixoutput"></h3> 
+     <img id="pixel" alt="avatar"> 
+    </div> 
+   </div> 
+   <script>
+    var name = prompt("What is your name?");
+document.getElementById("botoutput").innerHTML = "Your name " + name + " in bottts Image format";
+document.getElementById("ideoutput").innerHTML = "Your name " + name + " in Identicon Image format";
+document.getElementById("pixoutput").innerHTML = "Your name " + name + " in Pixel-art Image format";
+document.getElementById("bot").src = "https://api.dicebear.com/5.x/bottts/svg?seed=" + name;
+document.getElementById("identicon").src = "https://api.dicebear.com/5.x/identicon/svg?seed=" + name;
+document.getElementById("pixel").src = "https://api.dicebear.com/4.x/pixel-art/svg?seed=" + name;
+   </script>
+  </main> 
+ </body>
+</html>
