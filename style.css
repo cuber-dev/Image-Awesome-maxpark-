@@ -1,11 +1,13 @@
 
 :root{
-  --flow : repeat(2,1fr);
+  --flow : repeat(2,400px);
   --theme :  #F6094D;
+  --text: 22px;
 }
 @media (max-width: 600px){
   :root{
     --flow: 1fr;
+    --text: 14px;
   }
 }
 
@@ -14,6 +16,7 @@
   padding: 0;
   font-family: 'Poppins', sans-serif;
   font-family: 'Roboto', sans-serif;
+  text-decoration: none;
 }
 header{
   color: white;
@@ -29,26 +32,48 @@ header h1{
   margin: 0;
   width:100%;
 }
-
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .container{
   display: grid;
   grid-template-columns: var(--flow);
-  padding: 1.5rem;
   gap: 20px;
+  width: max-content;
   margin: 2rem 0;
 }
 .images{
   box-shadow: 5px 5px 15px rgba(0,0,0,0.20),
               -5px -5px 15px rgba(0,0,0,0.20);
   border-radius:15px;
-  padding:20px;
+  padding:15px;
   text-align:center;
 }
-.container .images h5 {
+.container .images p {
+  font-size: var(--text);
   text-align: center;
   padding: 10px;
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
   border-bottom: 1px solid var(--theme);
+}
+.download {
+  background: var(--theme);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  color: white;
+  margin: 1rem 0 0 0;
+  display: block;
+  letter-spacing: 4px;
+  font-size: calc(var(--text) - 1px);
+}
+
+.download:hover,
+.download:focus,
+.download:active{
+  opacity: 0.7;
 }
 
 #note {
