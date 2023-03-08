@@ -51,7 +51,7 @@ header h1{
   border-bottom: 1px solid var(--theme);
 }
 
-.note {
+#note {
   background: grey;
   width: max-content;
   padding: 1.5rem;

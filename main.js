@@ -24,3 +24,9 @@ document.getElementById("pixel").src = "https://api.dicebear.com/4.x/pixel-art/s
 document.getElementById("adventure").src = "https://api.dicebear.com/5.x/adventurer/svg?seed=" + name;
 document.getElementById('thumb').src = "https://api.dicebear.com/5.x/thumbs/svg?seed=" + name;
 document.getElementById('icon').src = "https://api.dicebear.com/5.x/icons/svg?seed=" + name;
+
+let refresh = document.getElementById('note');
+
+refresh.addEventListener('click',() => {
+  window.location.reload();
+});
