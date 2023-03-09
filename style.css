@@ -2,7 +2,7 @@
 :root{
   --flow : repeat(2,400px);
   --theme :  #F6094D;
-  --text: 22px;
+  --text: 18px;
 }
 @media (max-width: 600px){
   :root{
@@ -92,7 +92,6 @@ footer{
     } 
 footer h2{
       background: #42445A;
-      font-size: 22px;
       width:100%;
       padding: 1rem 0;
       transition: all 300ms ease-out; 
