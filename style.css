@@ -6,7 +6,7 @@
 }
 @media (max-width: 600px){
   :root{
-    --flow: 300px;
+    --flow: 320px;
     --text: 14px;
   }
 }
