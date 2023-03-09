@@ -26,7 +26,7 @@ let adventureLink = document.getElementById('adventure-link');
 let thumbLink = document.getElementById('thumb-link');
 let iconLink = document.getElementById('icon-link');
 
-
+/* Arrays for manipulation */
 let  format  = ["Identicon","Botts","Pixel-art","Adventure","Thumb",'Icon'];
 let paraItmes = [ideoutput,botoutput,pixoutput,adoutput,thumboutput,iconoutput];
 let Items = [identicon,bot,pixel,adventure,thumb,icon];
@@ -40,24 +40,24 @@ let path = [
   ];
 let links = [identiconLink,botLink,pixelLink,adventureLink,thumbLink,iconLink];
 
+/* Making and adding appropriate values */
 async function makeRequest(){
   Items.forEach(async (e, i) => {
     paraItmes[i].textContent = `Your name ${name} in ${format[i]} Image format`;
-    e.src = "https://api.dicebear.com/" + path[i] + "/svg?seed=" + name;
-    let response = await fetch("https://api.dicebear.com/" + path[i] + "/svg?seed=" + name);
+    e.src = `https://api.dicebear.com/${path[i]}/svg?seed=${name}&format=png`;
+    let response = await fetch(`https://api.dicebear.com/${path[i]}/svg?seed=${name}&format=jpeg`);
     let blob = await response.blob();
     const imageUrl = URL.createObjectURL(blob);
-    // image.src = imageUrl;
     links[i].href = imageUrl;
   });
 }
 
-if(name !== null || name !== undefined){
+
+if(name !== null && name !== undefined){
   makeRequest();
 }else{
   window.location.reload();
 }
-
 
 
 /*Relaod*/
@@ -65,16 +65,3 @@ let refresh = document.getElementById('note');
 refresh.addEventListener('click',() => {
   window.location.reload();
 });
-/*
-fetch(apiUrl)
-  .then(response => response.blob())
-  .then(blob => {
-    // Convert the blob to a data URL
-    const imageUrl = URL.createObjectURL(blob);
-    
-    // Set the image source
-    image.src = imageUrl;
-    
-    // Set the download link href attribute to the image data URL
-    downloadLink.href = imageUrl;
-  });*/

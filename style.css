@@ -73,25 +73,25 @@ main{
 
 .download:hover,
 .download:focus,
-.download:active{
+.download:active,
+#note:active{
   opacity: 0.7;
 }
 
 #note {
-  background: grey;
+  background: #7F7F83;
   width: max-content;
   padding: 1.5rem;
   border-radius: 10px;
   margin: 1rem auto;
   color: white;
 }
-
 footer{
       width: 100%;
       text-align: center;
     } 
 footer h2{
-      background: var(--theme);
+      background: #42445A;
       font-size: 22px;
       width:100%;
       padding: 1rem 0;
