@@ -44,8 +44,8 @@ let links = [identiconLink,botLink,pixelLink,adventureLink,thumbLink,iconLink];
 async function makeRequest(){
   Items.forEach(async (e, i) => {
     paraItmes[i].innerHTML = `Your name <b>${name}</b> in <b>${format[i]}</b> Image format`;
-    e.src = `https://api.dicebear.com/${path[i]}/svg?seed=${name}`;
-    let response = await fetch(`https://api.dicebear.com/${path[i]}/svg?seed=${name}`);
+    e.src = `https://api.dicebear.com/${path[i]}/jpg?seed=${name}`;
+    let response = await fetch(`https://api.dicebear.com/${path[i]}/jpg?seed=${name}`);
     let blob = await response.blob();
     const imageUrl = URL.createObjectURL(blob);
     links[i].href = imageUrl;
