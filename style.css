@@ -27,7 +27,7 @@ header{
   text-align: center;
 }
 header h1{
-  background: var(--theme);
+  background: #F51C72;
   padding: 1rem 0;
   margin: 0;
   width:100%;
