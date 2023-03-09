@@ -40,11 +40,15 @@ let path = [
   ];
 let links = [identiconLink,botLink,pixelLink,adventureLink,thumbLink,iconLink];
 
-function makeRequest(){
-  Items.forEach((e, i) => {
+async function makeRequest(){
+  Items.forEach(async (e, i) => {
     paraItmes[i].textContent = `Your name ${name} in ${format[i]} Image format`;
     e.src = "https://api.dicebear.com/" + path[i] + "/svg?seed=" + name;
-    links[i].href = "https://api.dicebear.com/" + path[i] + "/svg?seed=" + name;
+    let response = await fetch("https://api.dicebear.com/" + path[i] + "/svg?seed=" + name);
+    let blob = await response.blob();
+    const imageUrl = URL.createObjectURL(blob);
+    // image.src = imageUrl;
+    links[i].href = imageUrl;
   });
 }
 
@@ -61,3 +65,16 @@ let refresh = document.getElementById('note');
 refresh.addEventListener('click',() => {
   window.location.reload();
 });
+/*
+fetch(apiUrl)
+  .then(response => response.blob())
+  .then(blob => {
+    // Convert the blob to a data URL
+    const imageUrl = URL.createObjectURL(blob);
+    
+    // Set the image source
+    image.src = imageUrl;
+    
+    // Set the download link href attribute to the image data URL
+    downloadLink.href = imageUrl;
+  });*/
