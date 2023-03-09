@@ -42,7 +42,8 @@ main{
 .container{
   display: grid;
   grid-template-columns: var(--flow);
-  gap: 20px;
+  -webkit-grid-template-columns: var(--flow);
+  grid-gap: 20px;
   width: max-content;
   margin: 2rem 0;
 }
