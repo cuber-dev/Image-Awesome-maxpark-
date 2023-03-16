@@ -71,7 +71,7 @@ async function doWork(string){
     //Adding attributes and values
     imageDiv.classList.add('imageDiv');
     
-    paraTag.innerHTML = `Your name <b>${string}</b> in <b>${formatLabels[i]}</b> Image formatLabels`;
+    paraTag.innerHTML = `Your name <b>${string}</b> in <b>${formatLabels[i]}</b> Image Format`;
     
     imageTag.src = `https://api.dicebear.com/${formatPaths[i]}/${formatType}?seed=${string}`;
     
