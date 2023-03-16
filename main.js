@@ -1,7 +1,8 @@
 
 const nameInput = document.getElementById('name-input');
 const inputContainer = document.getElementById('input-container');
-const submitButton = document.getElementById("submit");
+const nameForm = document.getElementById("nameForm");
+
 // INput styles
 nameInput.addEventListener('focus', () => {
   inputContainer.style.border = '2px solid #42445A';
@@ -72,7 +73,7 @@ async function makeRequest(){
   });
 }
 
-submitButton.addEventListener('click',() => {
+nameForm.addEventListener('submit',() => {
   makeRequest();
   imagesContainer.classList.remove('hide');
 });
