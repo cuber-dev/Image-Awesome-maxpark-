@@ -49,9 +49,11 @@ main #input-container{
               2px 2px 10px rgba(0,0,0,0.15);
   width: var(--input-container-width);
   gap: 5px;
-  border: 2px solid transparent;
+  outline: 2px solid transparent;
 }
-
+form:focus-within #input-container{
+  outline: 2px solid #42445A;
+}
 main #name-input{
   border:none;
   outline:none;

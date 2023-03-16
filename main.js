@@ -1,15 +1,6 @@
 
 const nameInput = document.getElementById('name-input');
-const inputContainer = document.getElementById('input-container');
 const nameForm = document.getElementById("nameForm");
-
-// INput styles
-nameInput.addEventListener('focus', () => {
-  inputContainer.style.border = '2px solid #42445A';
-});
-nameInput.addEventListener('blur', () => {
-  inputContainer.style.border = '2px solid transparent';
-});
 
 // Image cards container 
 let imagesContainer = document.getElementById('container');
