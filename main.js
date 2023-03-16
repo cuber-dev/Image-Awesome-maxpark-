@@ -74,6 +74,7 @@ async function makeRequest(){
 }
 
 nameForm.addEventListener('submit',() => {
+  event.preventDefault();
   makeRequest();
   imagesContainer.classList.remove('hide');
 });
