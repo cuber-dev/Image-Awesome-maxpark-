@@ -39,9 +39,9 @@ let thumbLink = document.getElementById('thumb-link');
 let iconLink = document.getElementById('icon-link');
 
 /* Arrays for manipulation */
-let  format  = ["Identicon","Botts","Pixel-art","Adventure","Thumb",'Icon'];
+let formatLabels  = ["Identicon","Botts","Pixel-art","Adventure","Thumb",'Icon'];
 let paraItmes = [ideoutput,botoutput,pixoutput,adoutput,thumboutput,iconoutput];
-let Items = [identicon,bot,pixel,adventure,thumb,icon];
+let imagesAll = [identicon,bot,pixel,adventure,thumb,icon];
 let path = [
     '5.x/identicon',
     '5.x/bottts',
@@ -52,16 +52,16 @@ let path = [
   ];
   
 let downloadButtons = [identiconLink,botLink,pixelLink,adventureLink,thumbLink,iconLink];
-downloadButtons.forEach((e, i) => {
+downloadButtons.forEach((button, i) => {
   downloadButtons[i].style.opacity = '0.6';
   downloadButtons[i].textContent = "Loading...";
 });
 
 /* Making and adding appropriate values */
 async function makeRequest(){
-  Items.forEach(async (e, i) => {
-    paraItmes[i].innerHTML = `Your name <b>${nameInput.value}</b> in <b>${format[i]}</b> Image format`;
-    e.src = `https://api.dicebear.com/${path[i]}/svg?seed=${nameInput.value}`;
+  imagesAll.forEach(async (image, i) => {
+    paraItmes[i].innerHTML = `Your name <b>${nameInput.value}</b> in <b>${formatLabels[i]}</b> Image formatLabels`;
+    image.src = `https://api.dicebear.com/${path[i]}/svg?seed=${nameInput.value}`;
     let response = await fetch(`https://api.dicebear.com/${path[i]}/jpg?seed=${nameInput.value}`);
     let blob = await response.blob();
     const imageUrl = URL.createObjectURL(blob);
