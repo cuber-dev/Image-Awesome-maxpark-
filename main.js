@@ -5,7 +5,7 @@ const nameForm = document.getElementById("nameForm");
 let imagesContainer = document.getElementById('container');
 imagesContainer.classList.add('hide');
 
-let formats  = [
+let formatLabels  = [
     "Identicon",
     "Botts",
     "Pixel-art",
@@ -27,7 +27,7 @@ let formats  = [
     'Lorelei-neutral',
     'Shapes'
     ];
-let path = [
+let formatPaths = [
     '5.x/identicon',
     '5.x/bottts',
     '4.x/pixel-art',
@@ -54,7 +54,7 @@ async function doWork(string){
   //For removing previously created child's
   imagesContainer.innerHTML = '';
   
-  formats.forEach(async (e, i) => {
+  formatLabels.forEach(async (e, i) => {
     
     //creating elements
     let imageDiv = document.createElement('div');
@@ -65,9 +65,9 @@ async function doWork(string){
     //Adding attributes and values
     imageDiv.classList.add('imageDiv');
     
-    paraTag.innerHTML = `Your name <b>${string}</b> in <b>${formats[i]}</b> Image formats`;
+    paraTag.innerHTML = `Your name <b>${string}</b> in <b>${formatLabels[i]}</b> Image formatLabels`;
     
-    imageTag.src = `https://api.dicebear.com/${path[i]}/svg?seed=${string}`;
+    imageTag.src = `https://api.dicebear.com/${formatPaths[i]}/svg?seed=${string}`;
     
     aButton.textContent = 'Loading...';
     aButton.style.opacity = "0.6";
@@ -75,7 +75,7 @@ async function doWork(string){
     aButton.download = `${string}.jpg`;
    
     // Making request for Download button
-    let response = await fetch(`https://api.dicebear.com/${path[i]}/jpg?seed=${string}`);
+    let response = await fetch(`https://api.dicebear.com/${formatPaths[i]}/jpg?seed=${string}`);
     let blob = await response.blob();
     const imageUrl = URL.createObjectURL(blob);
     aButton.href = imageUrl;
