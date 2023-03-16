@@ -30,7 +30,7 @@ let adventure = document.getElementById('adventure');
 let thumb = document.getElementById('thumb');
 let icon = document.getElementById('icon');
 
-/* download links */
+/* download downloadButtons */
 let identiconLink = document.getElementById('identicon-link');
 let botLink = document.getElementById('bot-link');
 let pixelLink = document.getElementById('pixel-link');
@@ -51,10 +51,10 @@ let path = [
     '5.x/icons'
   ];
   
-let links = [identiconLink,botLink,pixelLink,adventureLink,thumbLink,iconLink];
-links.forEach((e, i) => {
-  links[i].style.opacity = '0.6';
-  links[i].textContent = "Loading...";
+let downloadButtons = [identiconLink,botLink,pixelLink,adventureLink,thumbLink,iconLink];
+downloadButtons.forEach((e, i) => {
+  downloadButtons[i].style.opacity = '0.6';
+  downloadButtons[i].textContent = "Loading...";
 });
 
 /* Making and adding appropriate values */
@@ -65,10 +65,10 @@ async function makeRequest(){
     let response = await fetch(`https://api.dicebear.com/${path[i]}/jpg?seed=${nameInput.value}`);
     let blob = await response.blob();
     const imageUrl = URL.createObjectURL(blob);
-    links[i].href = imageUrl;
-    links[i].download = `${nameInput.value}.jpg`;
-    links[i].style.opacity = '1';
-    links[i].textContent = 'Download';
+    downloadButtons[i].href = imageUrl;
+    downloadButtons[i].download = `${nameInput.value}.jpg`;
+    downloadButtons[i].style.opacity = '1';
+    downloadButtons[i].textContent = 'Download';
   });
 }
 
