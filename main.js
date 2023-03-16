@@ -1,10 +1,15 @@
-let name = document.getElementById('name');
-let inputContainer = document.getElementById('input-container');
 
-/*
-name.addEventListener('focus',() => {
-  inputContainer.style.border = "2px solid #42445A";
-});*/
+const nameInput = document.getElementById('name-input');
+const inputContainer = document.getElementById('input-container');
+const submitButton = document.getElementById("submit");
+// INput styles
+nameInput.addEventListener('focus', () => {
+  inputContainer.style.border = '2px solid #42445A';
+});
+nameInput.addEventListener('blur', () => {
+  inputContainer.style.border = '2px solid transparent';
+});
+
 
 /*Image headings */
 let ideoutput = document.getElementById("ideoutput");
@@ -53,33 +58,18 @@ links.forEach((e, i) => {
 async function makeRequest(){
   Items.forEach(async (e, i) => {
     links[i].textContent = "Loading...";
-    paraItmes[i].innerHTML = `Your name <b>${name}</b> in <b>${format[i]}</b> Image format`;
-    e.src = `https://api.dicebear.com/${path[i]}/svg?seed=${name}`;
-    let response = await fetch(`https://api.dicebear.com/${path[i]}/jpg?seed=${name}`);
+    paraItmes[i].innerHTML = `Your name <b>${nameInput.value}</b> in <b>${format[i]}</b> Image format`;
+    e.src = `https://api.dicebear.com/${path[i]}/svg?seed=${nameInput.value}`;
+    let response = await fetch(`https://api.dicebear.com/${path[i]}/jpg?seed=${nameInput.value}`);
     let blob = await response.blob();
     const imageUrl = URL.createObjectURL(blob);
     links[i].href = imageUrl;
-    links[i].download = `${name}.jpg`;
+    links[i].download = `${nameInput.value}.jpg`;
     links[i].style.opacity = '1';
     links[i].textContent = 'Download';
   });
 }
 
-name.addEventListener('input',{
+submitButton.addEventListener('click',() => {
   makeRequest();
 });
-
-/*
-if(name !== null && name !== undefined){
-  makeRequest();
-}else{
-  window.location.reload();
-}
-
-
-Relaod
-let refresh = document.getElementById('note');
-refresh.addEventListener('click',() => {
-  window.location.reload();
-});
-*/
