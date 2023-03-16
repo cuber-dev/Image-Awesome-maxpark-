@@ -82,30 +82,28 @@ main #submit:active {
   -webkit-grid-template-columns: var(--flow);
   grid-gap: 20px;
   width: max-content;
-  pointer-events: all;
   margin: 2rem 0;
+  z-index: 2;
 }
 #container.hide{
-  height: 100vh;
+  z-index: -1;
+  min-height: 100vh;
   background-image: url("poster.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
-#container.hide *{
-  display: none;
-}
 
-.images{
+.imageDiv{
   box-shadow: 5px 5px 15px rgba(0,0,0,0.20),
               -5px -5px 15px rgba(0,0,0,0.20);
   border-radius:15px;
   padding:15px;
   text-align:center;
 }
-.images img{
+.imageDiv img{
   width: 100%;
 }
-#container .images p {
+#container .imageDiv p {
   font-size: var(--text);
   text-align: center;
   padding: 10px;
