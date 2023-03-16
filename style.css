@@ -84,10 +84,13 @@ main #submit:active {
   margin: 2rem 0;
 }
 #container.hide{
-  opacity: 0;
   height: 100vh;
-  overflow: hidden;
-  pointer-events: none;
+  background-image: url("poster.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#container.hide *{
+  display: none;
 }
 
 .images{
