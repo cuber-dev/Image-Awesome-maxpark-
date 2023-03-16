@@ -78,7 +78,7 @@ async function doWork(string){
     aButton.textContent = 'Loading...';
     aButton.style.opacity = "0.6";
     aButton.classList.add('download');
-    aButton.download = `${string}.jpg`;
+    aButton.download = `${string}.${formatType}`;
    
     // Making request for Download button
     let response = await fetch(`https://api.dicebear.com/${formatPaths[i]}/${formatType}?seed=${string}`);
