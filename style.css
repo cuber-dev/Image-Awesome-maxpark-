@@ -41,6 +41,13 @@ main{
   align-items: center;
   padding: .5rem;
 }
+main form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 main #input-container{
   display: flex;
   padding: .5rem;
@@ -51,9 +58,7 @@ main #input-container{
   gap: 5px;
   outline: 2px solid transparent;
 }
-form:focus-within #input-container{
-  outline: 2px solid #42445A;
-}
+
 main #name-input{
   border:none;
   outline:none;
@@ -73,6 +78,18 @@ main #submit {
 }
 main #submit:active {
   opacity: 0.7;
+}
+main #extensions{
+  padding: .5rem 1rem;
+  border:none;
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.15),
+              1px 1px 10px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  background: white;
+}
+form:focus-within #input-container ,
+ #extensions:focus{
+  outline: 2px solid #42445A;
 }
 
 /* Container of all Images */

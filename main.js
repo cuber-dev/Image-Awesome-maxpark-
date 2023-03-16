@@ -4,7 +4,7 @@ const nameForm = document.getElementById("nameForm");
 // Image cards container 
 let imagesContainer = document.getElementById('container');
 imagesContainer.classList.add('hide');
-
+let extensions = document.getElementById('extensions');
 let formatLabels  = [
     "Identicon",
     "Botts",
@@ -50,6 +50,12 @@ let formatPaths = [
     '5.x/shapes'
   ];
   
+let formatType = "jpg";
+
+extensions.addEventListener('change',() => {
+ formatType = extensions.value;
+});
+  
 async function doWork(string){
   //For removing previously created child's
   imagesContainer.innerHTML = '';
@@ -67,7 +73,7 @@ async function doWork(string){
     
     paraTag.innerHTML = `Your name <b>${string}</b> in <b>${formatLabels[i]}</b> Image formatLabels`;
     
-    imageTag.src = `https://api.dicebear.com/${formatPaths[i]}/svg?seed=${string}`;
+    imageTag.src = `https://api.dicebear.com/${formatPaths[i]}/${formatType}?seed=${string}`;
     
     aButton.textContent = 'Loading...';
     aButton.style.opacity = "0.6";
@@ -75,7 +81,7 @@ async function doWork(string){
     aButton.download = `${string}.jpg`;
    
     // Making request for Download button
-    let response = await fetch(`https://api.dicebear.com/${formatPaths[i]}/jpg?seed=${string}`);
+    let response = await fetch(`https://api.dicebear.com/${formatPaths[i]}/${formatType}?seed=${string}`);
     let blob = await response.blob();
     const imageUrl = URL.createObjectURL(blob);
     aButton.href = imageUrl;
