@@ -5,14 +5,49 @@ const nameForm = document.getElementById("nameForm");
 let imagesContainer = document.getElementById('container');
 imagesContainer.classList.add('hide');
 
-let formats  = ["Identicon","Botts","Pixel-art","Adventure","Thumb",'Icon'];
+let formats  = [
+    "Identicon",
+    "Botts",
+    "Pixel-art",
+    "Pixel-art-neutral",
+    "Adventure",
+    "Thumb",
+    'Icon',
+    'Adventurer-neutral',
+    'Avaatars',
+    'Avaatars-neutral',
+    'Big-ears',
+    'Big-ears-neutral',
+    'Big-smile',
+    'Botts-neutral',
+    'Croodles',
+    'Croodles-neutral',
+    'Fun-emoji',
+    'Lorelei',
+    'Lorelei-neutral',
+    'Shapes'
+    ];
 let path = [
     '5.x/identicon',
     '5.x/bottts',
     '4.x/pixel-art',
+    '5.x/pixel-art-neutral',
     '5.x/adventurer',
     '5.x/thumbs',
-    '5.x/icons'
+    '5.x/icons',
+    '5.x/adventurer-neutral',
+    '5.x/avataaars',
+    '5.x/avataaars-neutral',
+    '5.x/big-ears',
+    '5.x/big-ears-neutral',
+    '5.x/big-smile',
+    '5.x/bottts-neutral',
+    '5.x/croodles',
+    '5.x/croodles-neutral',
+    '5.x/fun-emoji',
+    '5.x/lorelei',
+    '5.x/lorelei-neutral',
+    '5.x/shapes'
   ];
   
 async function doWork(string){
@@ -33,7 +68,9 @@ async function doWork(string){
     paraTag.innerHTML = `Your name <b>${string}</b> in <b>${formats[i]}</b> Image formats`;
     
     imageTag.src = `https://api.dicebear.com/${path[i]}/svg?seed=${string}`;
-
+    
+    aButton.textContent = 'Loading...';
+    aButton.style.opacity = "0.6";
     aButton.classList.add('download');
     aButton.download = `${string}.jpg`;
    
@@ -44,6 +81,7 @@ async function doWork(string){
     aButton.href = imageUrl;
     aButton.style.opacity = '1';
     aButton.textContent = 'Download';
+    aButton.style.opacity = "1";
     
     //Adding child's 
     imageDiv.appendChild(paraTag);
