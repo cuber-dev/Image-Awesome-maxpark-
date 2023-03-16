@@ -1,7 +1,7 @@
 
 :root{
   --flow : repeat(2,435px);
-  --theme :  #FA2764;
+  --theme :  #F60D50;
   --text: 18px;
   --input-container-width: 400px;
 }
@@ -58,7 +58,7 @@ main #name-input{
   font-size: calc(var(--text) + 2px);
   flex: 1;
 }
-main #name-input + label {
+main #submit {
   font-weight: normal;
   background: #42445A;
   display: flex;
@@ -67,20 +67,29 @@ main #name-input + label {
   padding: 10px;
   color: white;
   border-radius: 3px;
+  border:none;
 }
-main #name-input + label:active {
+main #submit:active {
   opacity: 0.7;
 }
 
 /* Container of all Images */
-.container{
+#container{
   display: grid;
   grid-template-columns: var(--flow);
   -webkit-grid-template-columns: var(--flow);
   grid-gap: 20px;
   width: max-content;
+  pointer-events: all;
   margin: 2rem 0;
 }
+#container.hide{
+  opacity: 0;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 .images{
   box-shadow: 5px 5px 15px rgba(0,0,0,0.20),
               -5px -5px 15px rgba(0,0,0,0.20);
@@ -91,7 +100,7 @@ main #name-input + label:active {
 .images img{
   width: 100%;
 }
-.container .images p {
+#container .images p {
   font-size: var(--text);
   text-align: center;
   padding: 10px;

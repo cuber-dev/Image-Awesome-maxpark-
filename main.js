@@ -10,6 +10,9 @@ nameInput.addEventListener('blur', () => {
   inputContainer.style.border = '2px solid transparent';
 });
 
+// Image cards container 
+let imagesContainer = document.getElementById('container');
+imagesContainer.classList.add('hide');
 
 /*Image headings */
 let ideoutput = document.getElementById("ideoutput");
@@ -57,7 +60,6 @@ links.forEach((e, i) => {
 /* Making and adding appropriate values */
 async function makeRequest(){
   Items.forEach(async (e, i) => {
-    links[i].textContent = "Loading...";
     paraItmes[i].innerHTML = `Your name <b>${nameInput.value}</b> in <b>${format[i]}</b> Image format`;
     e.src = `https://api.dicebear.com/${path[i]}/svg?seed=${nameInput.value}`;
     let response = await fetch(`https://api.dicebear.com/${path[i]}/jpg?seed=${nameInput.value}`);
@@ -72,4 +74,5 @@ async function makeRequest(){
 
 submitButton.addEventListener('click',() => {
   makeRequest();
+  imagesContainer.classList.remove('hide');
 });
